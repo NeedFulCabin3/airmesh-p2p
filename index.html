@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DropMesh - P2P File Transfer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>DropMesh</h1>
+    <p class="sub">send files tab-to-tab, browser-to-browser, no server storing anything</p>
+  </header>
+
+  <div class="panel">
+    <h2>Step 1 - Start a connection</h2>
+    <div class="btn-row">
+      <button id="hostBtn">I'm sending (create offer)</button>
+      <button id="joinBtn" class="secondary">I'm receiving (paste offer)</button>
+    </div>
+  </div>
+
+  <div class="panel" id="signalPanel" style="display:none">
+    <h2>Step 2 - Swap connection codes</h2>
+    <p class="hint">Copy the box below and send it to the other person through any chat app. Paste theirs into the second box.</p>
+    <label>Your code</label>
+    <textarea id="localSDP" readonly></textarea>
+    <label>Their code</label>
+    <textarea id="remoteSDP" placeholder="paste the code you got from the other side"></textarea>
+    <button id="connectBtn">Connect</button>
+    <span id="connStatus"></span>
+  </div>
+
+  <div class="panel" id="filePanel" style="display:none">
+    <h2>Step 3 - Send a file</h2>
+    <input type="file" id="fileInput">
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p id="transferStatus"></p>
+  </div>
+
+  <div class="panel" id="logPanel">
+    <h2>Log</h2>
+    <div id="log"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
